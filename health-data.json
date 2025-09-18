@@ -32,6 +32,36 @@
       ],
       "goal": null,
       "permanent": true
+    },
+    {
+      "id": "chart_1758194044769",
+      "name": "steps",
+      "type": "line",
+      "goal": 10000,
+      "dataLabel": "Value",
+      "data": [
+        {
+          "date": "2025-09-10",
+          "value": 9000
+        },
+        {
+          "date": "2025-09-11",
+          "value": 8500
+        },
+        {
+          "date": "2025-09-12",
+          "value": 7000
+        },
+        {
+          "date": "2025-09-13",
+          "value": 12000
+        },
+        {
+          "date": "2025-09-14",
+          "value": 8000
+        }
+      ],
+      "heatmapData": []
     }
   ]
 }
