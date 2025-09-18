@@ -20,6 +20,20 @@
       "data": [],
       "goal": null,
       "permanent": true
+    },
+    {
+      "id": "chart_1758198318463",
+      "name": "hello",
+      "type": "line",
+      "goal": 10000,
+      "dataLabel": "Value",
+      "data": [
+        {
+          "date": "2025-02-10",
+          "value": 400
+        }
+      ],
+      "heatmapData": []
     }
   ]
 }
