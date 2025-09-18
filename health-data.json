@@ -17,7 +17,12 @@
       "name": "Calories Burned",
       "type": "bar",
       "dataLabel": "Calories",
-      "data": [],
+      "data": [
+        {
+          "date": "2025-09-18",
+          "value": 600
+        }
+      ],
       "goal": null,
       "permanent": true
     }
