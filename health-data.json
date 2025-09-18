@@ -42,24 +42,6 @@
         }
       ],
       "heatmapData": []
-    },
-    {
-      "id": "chart_1758177125775",
-      "name": "Diet",
-      "type": "heatmap",
-      "dataLabel": "Value",
-      "heatmapData": [
-        {
-          "datetime": "2025-09-15T11:00",
-          "intensity": 1000
-        },
-        {
-          "datetime": "2025-09-15T13:00",
-          "intensity": 200
-        }
-      ],
-      "goal": null,
-      "data": []
     }
   ]
 }
