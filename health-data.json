@@ -20,6 +20,24 @@
       "data": [],
       "goal": null,
       "permanent": true
+    },
+    {
+      "id": "chart_1758198044473",
+      "name": "Step Count",
+      "type": "line",
+      "goal": 10000,
+      "dataLabel": "Value",
+      "data": [
+        {
+          "date": "2025-09-17",
+          "value": 4000
+        },
+        {
+          "date": "2025-09-18",
+          "value": 5000
+        }
+      ],
+      "heatmapData": []
     }
   ]
 }
