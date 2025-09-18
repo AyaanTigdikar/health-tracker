@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance - Health Dashboard</title>
+    <title>TrackIrfan - Health Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.30.0/index.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,6 @@
             --strava-text-secondary: #999999;
             --success-green: #00D964;
             --warning-yellow: #FFB700;
-            --danger-red: #CC3300;
         }
 
         body {
@@ -726,320 +725,6 @@
             color: var(--strava-orange);
         }
 
-        /* Chart.js customization */
-        .chart-container {
-            position: relative;
-            height: 200px;
-        }
-
-        /* Calorie Tracker Styles */
-        .calorie-tracker {
-            background: var(--strava-gray);
-            border: 1px solid var(--strava-border);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .calorie-tracker.deficit {
-            border-color: var(--success-green);
-            box-shadow: 0 0 20px rgba(0, 217, 100, 0.1);
-        }
-
-        .calorie-tracker.surplus {
-            border-color: #E54502;
-            box-shadow: 0 0 20px rgba(229, 69, 2, 0.1);
-        }
-
-        .calorie-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .calorie-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--strava-text);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .calorie-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .calorie-stat {
-            background: var(--strava-dark);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .calorie-stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--strava-orange);
-            margin-bottom: 5px;
-        }
-
-        .calorie-stat-label {
-            font-size: 10px;
-            color: var(--strava-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 400;
-        }
-
-        .calorie-stat.deficit .calorie-stat-value {
-            color: var(--success-green);
-        }
-
-        .calorie-stat.surplus .calorie-stat-value {
-            color: #E54502;
-        }
-
-        .progress-section {
-            background: var(--strava-dark);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .progress-title {
-            font-size: 12px;
-            color: var(--strava-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .progress-bar-container {
-            background: var(--strava-gray);
-            border-radius: 8px;
-            padding: 4px;
-            margin-bottom: 10px;
-        }
-
-        .progress-bar-cells {
-            display: grid;
-            grid-template-columns: repeat(20, 1fr);
-            gap: 2px;
-            height: 20px;
-        }
-
-        .progress-cell {
-            background: var(--strava-light-gray);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .progress-cell.filled {
-            background: var(--strava-orange);
-            box-shadow: 0 0 5px rgba(252, 76, 2, 0.3);
-        }
-
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--strava-text-secondary);
-            font-weight: 400;
-        }
-
-        .progress-percentage {
-            color: var(--strava-orange);
-            font-weight: 500;
-        }
-
-        /* Meal Tracker Card Styles */
-        .meal-tracker-card {
-            background: var(--strava-gray);
-            border: 2px solid var(--strava-orange);
-            border-radius: 12px;
-            padding: 20px;
-            position: relative;
-            grid-column: span 2;
-        }
-
-        .meal-tracker-card::before {
-            content: 'DEFAULT TRACKER';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: var(--strava-orange);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .meal-input-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr auto;
-            gap: 10px;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: var(--strava-dark);
-            border-radius: 8px;
-        }
-
-        .meal-type-select {
-            padding: 10px;
-            background: var(--strava-light-gray);
-            border: 1px solid var(--strava-border);
-            color: var(--strava-text);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .meal-time-input {
-            padding: 10px;
-            background: var(--strava-light-gray);
-            border: 1px solid var(--strava-border);
-            color: var(--strava-text);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .meal-calorie-input {
-            padding: 10px;
-            background: var(--strava-light-gray);
-            border: 1px solid var(--strava-border);
-            color: var(--strava-text);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .calories-burned-input {
-            padding: 10px;
-            background: var(--strava-light-gray);
-            border: 1px solid var(--strava-border);
-            color: var(--strava-text);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .add-meal-btn {
-            padding: 10px 20px;
-            background: var(--strava-orange);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .add-meal-btn:hover {
-            background: #E54502;
-        }
-
-        .meal-visualizations {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .meal-viz-section {
-            background: var(--strava-dark);
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .meal-viz-title {
-            font-size: 12px;
-            color: var(--strava-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .meal-timeline {
-            position: relative;
-            height: 200px;
-        }
-
-        .meal-timeline-axis {
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--strava-border);
-            top: 50%;
-        }
-
-        .meal-marker {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--strava-orange);
-            border: 2px solid var(--strava-dark);
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .meal-marker:hover {
-            transform: translate(-50%, -50%) scale(1.5);
-            box-shadow: 0 0 10px rgba(252, 76, 2, 0.5);
-        }
-
-        .meal-marker.snack {
-            background: var(--warning-yellow);
-        }
-
-        .time-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 10px;
-            color: var(--strava-text-secondary);
-            font-weight: 400;
-        }
-
-        .meal-category {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: var(--strava-gray);
-            border-radius: 6px;
-            margin-bottom: 8px;
-        }
-
-        .meal-category-name {
-            font-size: 13px;
-            color: var(--strava-text);
-            font-weight: 400;
-        }
-
-        .meal-category-calories {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--strava-orange);
-        }
-
-        .time-config-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
         /* Calendar Chart Styles */
         .calendar-container {
             padding: 20px;
@@ -1203,6 +888,318 @@
             color: white;
             border-color: var(--strava-orange);
         }
+
+        /* Chart.js customization */
+        .chart-container {
+            position: relative;
+            height: 200px;
+        }
+
+        /* Calorie Tracker Styles */
+        .calorie-tracker {
+            background: var(--strava-gray);
+            border: 1px solid var(--strava-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .calorie-tracker.deficit {
+            border-color: var(--success-green);
+            box-shadow: 0 0 20px rgba(0, 217, 100, 0.1);
+        }
+
+        .calorie-tracker.surplus {
+            border-color: #E54502;
+            box-shadow: 0 0 20px rgba(229, 69, 2, 0.1);
+        }
+
+        .calorie-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calorie-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--strava-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calorie-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .calorie-stat {
+            background: var(--strava-dark);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .calorie-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--strava-orange);
+            margin-bottom: 5px;
+        }
+
+        .calorie-stat-label {
+            font-size: 10px;
+            color: var(--strava-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        .calorie-stat.deficit .calorie-stat-value {
+            color: var(--success-green);
+        }
+
+        .calorie-stat.surplus .calorie-stat-value {
+            color: #E54502;
+        }
+
+        .progress-section {
+            background: var(--strava-dark);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 12px;
+            color: var(--strava-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .progress-bar-container {
+            background: var(--strava-gray);
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-cells {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            gap: 2px;
+            height: 20px;
+        }
+
+        .progress-cell {
+            background: var(--strava-light-gray);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-cell.filled {
+            background: var(--strava-orange);
+            box-shadow: 0 0 5px rgba(252, 76, 2, 0.3);
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--strava-text-secondary);
+            font-weight: 400;
+        }
+
+        .progress-percentage {
+            color: var(--strava-orange);
+            font-weight: 500;
+        }
+
+        /* Meal Tracker Card Styles */
+        .meal-tracker-card {
+            background: var(--strava-gray);
+            border: 2px solid var(--strava-orange);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            grid-column: span 2;
+        }
+
+        .meal-tracker-card::before {
+            content: 'DEFAULT TRACKER';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--strava-orange);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .meal-input-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: var(--strava-dark);
+            border-radius: 8px;
+        }
+
+        .meal-type-select {
+            padding: 10px;
+            background: var(--strava-light-gray);
+            border: 1px solid var(--strava-border);
+            color: var(--strava-text);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .meal-time-input {
+            padding: 10px;
+            background: var(--strava-light-gray);
+            border: 1px solid var(--strava-border);
+            color: var(--strava-text);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .meal-calorie-input {
+            padding: 10px;
+            background: var(--strava-light-gray);
+            border: 1px solid var(--strava-border);
+            color: var(--strava-text);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .add-meal-btn {
+            padding: 10px 20px;
+            background: var(--strava-orange);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .add-meal-btn:hover {
+            background: #E54502;
+        }
+
+        .meal-visualizations {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .meal-viz-section {
+            background: var(--strava-dark);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .meal-viz-title {
+            font-size: 12px;
+            color: var(--strava-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .meal-timeline {
+            position: relative;
+            height: 200px;
+        }
+
+        .meal-timeline-axis {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--strava-border);
+            top: 50%;
+        }
+
+        .meal-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--strava-orange);
+            border: 2px solid var(--strava-dark);
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .meal-marker:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            box-shadow: 0 0 10px rgba(252, 76, 2, 0.5);
+        }
+
+        .meal-marker.breakfast {
+            background: #FFB700;
+        }
+
+        .meal-marker.lunch {
+            background: var(--strava-orange);
+        }
+
+        .meal-marker.dinner {
+            background: #E54502;
+        }
+
+        .meal-marker.snack {
+            background: var(--strava-text-secondary);
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 10px;
+            color: var(--strava-text-secondary);
+            font-weight: 400;
+        }
+
+        .meal-category {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--strava-gray);
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .meal-category-name {
+            font-size: 13px;
+            color: var(--strava-text);
+            font-weight: 400;
+        }
+
+        .meal-category-calories {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--strava-orange);
+        }
+
+        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -1252,7 +1249,7 @@
             <div class="logo-section">
                 <div class="app-logo">
                     <span>💪</span>
-                    <span>PERFORMANCE</span>
+                    <span>TRACKIRFAN</span>
                 </div>
                 <div class="app-tagline">Track • Analyze • Achieve</div>
             </div>
@@ -1270,7 +1267,7 @@
 
             <div class="action-buttons">
                 <button class="btn-primary" onclick="openAddModal()">+ Add Chart</button>
-                <button class="btn-secondary" onclick="openSettingsModal()">⚙️ Settings</button>
+                <button class="btn-secondary" onclick="openGithubSettings()">⚙️ Settings</button>
             </div>
         </div>
 
@@ -1330,52 +1327,14 @@
     <!-- Floating Daily Update Button -->
     <button class="daily-update-btn" onclick="openDailyUpdateModal()" title="Add Daily Update">📊</button>
 
-    <!-- Settings Modal (Combined GitHub and Targets) -->
-    <div id="settingsModal" class="modal">
+    <!-- GitHub Setup Modal -->
+    <div id="githubSetupModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Settings</h2>
-                <p class="modal-subtitle">Configure your goals and sync options</p>
+                <h2 class="modal-title">GitHub Configuration</h2>
+                <p class="modal-subtitle">Connect your repository to sync data</p>
             </div>
             
-            <!-- Weight Goals Section -->
-            <h3 style="color: var(--strava-text); font-size: 16px; margin-bottom: 15px; font-weight: 500;">Weight Goals</h3>
-            <div class="form-group">
-                <label class="form-label">Target Date</label>
-                <input type="date" id="settingsTargetDate" class="form-input">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Current Weight (kg)</label>
-                <input type="number" id="settingsCurrentWeight" class="form-input" placeholder="e.g., 75" step="0.1">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Target Weight (kg)</label>
-                <input type="number" id="settingsTargetWeight" class="form-input" placeholder="e.g., 70" step="0.1">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Daily Calorie Target</label>
-                <input type="number" id="settingsDailyCalories" class="form-input" placeholder="e.g., 2000">
-            </div>
-            
-            <!-- Meal Times Section -->
-            <h3 style="color: var(--strava-text); font-size: 16px; margin: 20px 0 15px; font-weight: 500;">Ideal Meal Times</h3>
-            <div class="time-config-grid">
-                <div class="form-group">
-                    <label class="form-label">Breakfast</label>
-                    <input type="time" id="breakfastTime" class="form-input" value="08:30">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Lunch</label>
-                    <input type="time" id="lunchTime" class="form-input" value="13:00">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Dinner</label>
-                    <input type="time" id="dinnerTime" class="form-input" value="18:00">
-                </div>
-            </div>
-            
-            <!-- GitHub Section -->
-            <h3 style="color: var(--strava-text); font-size: 16px; margin: 20px 0 15px; font-weight: 500;">GitHub Sync</h3>
             <div class="alert info">
                 <span>ℹ️</span>
                 <span>Your data will be stored securely in your GitHub repository</span>
@@ -1397,6 +1356,7 @@
             <div class="form-group">
                 <label class="form-label">Repository Name</label>
                 <input type="text" id="githubRepo" class="form-input" placeholder="health-tracker">
+                <div class="form-hint">The repository where your data will be stored</div>
             </div>
             
             <div class="form-group">
@@ -1405,8 +1365,8 @@
             </div>
             
             <div class="modal-actions">
-                <button class="btn-secondary" onclick="closeSettingsModal()">Cancel</button>
-                <button class="btn-primary" onclick="saveSettings()">Save Settings</button>
+                <button class="btn-secondary" onclick="skipGithubSetup()">Use Local Storage</button>
+                <button class="btn-primary" onclick="saveGithubConfig()">Connect GitHub</button>
             </div>
         </div>
     </div>
@@ -1415,8 +1375,8 @@
     <div id="setupModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Welcome to Performance</h2>
-                <p class="modal-subtitle">Let's set up your fitness goals</p>
+                <h2 class="modal-title">Set Your Goals</h2>
+                <p class="modal-subtitle">Define your targets to track progress</p>
             </div>
             <div class="form-group">
                 <label class="form-label">Target Date</label>
@@ -1436,7 +1396,6 @@
                 <div class="form-hint">Your target daily calorie intake for deficit calculation</div>
             </div>
             <div class="modal-actions">
-                <button class="btn-secondary" onclick="skipSetup()">Skip for Now</button>
                 <button class="btn-primary" onclick="setTarget()">Set Targets</button>
             </div>
         </div>
@@ -1448,6 +1407,12 @@
             <div class="modal-header">
                 <h2 class="modal-title">Daily Update</h2>
                 <p class="modal-subtitle">Quick entry for today's metrics</p>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Calories Burned Today</label>
+                <input type="number" id="dailyCaloriesBurned" class="form-input" placeholder="e.g., 500">
+                <div class="form-hint">Enter total calories burned from exercise</div>
             </div>
             
             <div id="dailyUpdateCharts"></div>
@@ -1511,27 +1476,6 @@
                 <button class="add-row-btn" onclick="addDataRow()">+ Add Row</button>
             </div>
             
-            <div class="form-group" id="calendarDataSection" style="display: none;">
-                <label class="form-label">Calendar Data Entry</label>
-                <div class="form-hint" style="margin-bottom: 15px;">
-                    Mark dates when the activity was completed
-                </div>
-                <div class="calendar-entry-section">
-                    <input type="date" id="calendarDateInput" class="form-input">
-                    <div class="calendar-quick-buttons">
-                        <button class="calendar-quick-btn" onclick="addCalendarDate()">Mark Complete</button>
-                        <button class="calendar-quick-btn" onclick="markToday()">Mark Today</button>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 20px;">
-                    <label class="form-label">Marked Dates</label>
-                    <div id="calendarDatesList" style="max-height: 200px; overflow-y: auto; background: var(--strava-dark); border: 1px solid var(--strava-border); border-radius: 8px; padding: 10px;">
-                        <div style="color: var(--strava-text-secondary); text-align: center;">No dates marked yet</div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="form-group" id="heatmapDataSection" style="display: none;">
                 <label class="form-label">Heatmap Data Entry</label>
                 <div class="form-hint" style="margin-bottom: 15px;">
@@ -1553,6 +1497,27 @@
                     <label class="form-label">Current Entries</label>
                     <div id="heatmapEntriesList" style="max-height: 200px; overflow-y: auto; background: var(--strava-dark); border: 1px solid var(--strava-border); border-radius: 8px; padding: 10px;">
                         <div style="color: var(--strava-text-secondary); text-align: center;">No entries yet</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group" id="calendarDataSection" style="display: none;">
+                <label class="form-label">Calendar Data Entry</label>
+                <div class="form-hint" style="margin-bottom: 15px;">
+                    Mark dates when the activity was completed
+                </div>
+                <div class="calendar-entry-section">
+                    <input type="date" id="calendarDateInput" class="form-input">
+                    <div class="calendar-quick-buttons">
+                        <button class="calendar-quick-btn" onclick="addCalendarDate()">Mark Complete</button>
+                        <button class="calendar-quick-btn" onclick="markToday()">Mark Today</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <label class="form-label">Marked Dates</label>
+                    <div id="calendarDatesList" style="max-height: 200px; overflow-y: auto; background: var(--strava-dark); border: 1px solid var(--strava-border); border-radius: 8px; padding: 10px;">
+                        <div style="color: var(--strava-text-secondary); text-align: center;">No dates marked yet</div>
                     </div>
                 </div>
             </div>
@@ -1580,11 +1545,6 @@
             targetWeight: null,
             currentWeight: null,
             dailyCalorieTarget: 2000,
-            idealMealTimes: {
-                breakfast: '08:30',
-                lunch: '13:00',
-                dinner: '18:00'
-            },
             charts: []
         };
 
@@ -1604,28 +1564,65 @@
             loadGithubConfig();
             
             if (!githubConfig.token || !githubConfig.useGithub) {
+                document.getElementById('githubSetupModal').classList.add('active');
                 loadLocalData();
-                if (!isNaN(value)) {
-                    const chart = appData.charts.find(c => c.id === chartId);
-                    if (chart) {
-                        if (!chart.data) chart.data = [];
-                        
-                        const existingIndex = chart.data.findIndex(d => d.date === today);
-                        if (existingIndex !== -1) {
-                            chart.data[existingIndex].value = value;
-                        } else {
-                            chart.data.push({ date: today, value: value });
-                            chart.data.sort((a, b) => new Date(a.date) - new Date(b.date));
-                        }
-                    }
-                }
-            });
+            } else {
+                await loadFromGithub();
+            }
             
-            await saveData();
-            updateDashboard();
-            updateCalorieTracker();
-            updateProgressBar();
-            closeDailyUpdateModal();
+            // Ensure meal tracker exists
+            ensureMealTracker();
+            
+            // Ensure calories burned chart exists
+            ensureCaloriesBurnedChart();
+            
+            if (appData.targetDate) {
+                updateDashboard();
+                startCountdown();
+                updateCalorieTracker();
+                updateProgressBar();
+            } else {
+                document.getElementById('setupModal').classList.add('active');
+            }
+            
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('targetDateInput').setAttribute('min', today);
+            document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-US', { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        // Ensure meal tracker exists
+        function ensureMealTracker() {
+            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
+            if (!mealTracker) {
+                appData.charts.unshift({
+                    id: 'meal_tracker',
+                    name: 'Meal Tracker',
+                    type: 'meal',
+                    dataLabel: 'Calories',
+                    mealData: [],
+                    permanent: true
+                });
+            }
+        }
+
+        // Ensure calories burned chart exists
+        function ensureCaloriesBurnedChart() {
+            const calorieChart = appData.charts.find(c => c.id === 'calories_burned');
+            if (!calorieChart) {
+                appData.charts.push({
+                    id: 'calories_burned',
+                    name: 'Calories Burned',
+                    type: 'bar',
+                    dataLabel: 'Calories',
+                    data: [],
+                    goal: null,
+                    permanent: true
+                });
+            }
         }
 
         // Add calendar date
@@ -1687,1346 +1684,6 @@
             updateCalendarDatesList();
         }
 
-        // Add calories burned entry
-        function addCaloriesBurned() {
-            const calories = parseFloat(document.getElementById('caloriesBurnedInput').value);
-            const today = new Date().toISOString().split('T')[0];
-            
-            if (!calories || calories <= 0) {
-                alert('Please enter valid calories burned');
-                return;
-            }
-            
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            if (!mealTracker) return;
-            
-            if (!mealTracker.burnedData) {
-                mealTracker.burnedData = [];
-            }
-            
-            // Check if entry for today exists
-            const existingIndex = mealTracker.burnedData.findIndex(d => d.date === today);
-            if (existingIndex !== -1) {
-                mealTracker.burnedData[existingIndex].calories += calories;
-            } else {
-                mealTracker.burnedData.push({
-                    date: today,
-                    calories: calories
-                });
-            }
-            
-            saveData();
-            updateCalorieTracker();
-            updateProgressBar();
-            
-            // Clear input
-            document.getElementById('caloriesBurnedInput').value = '';
-        }
-
-        // Calculate meal time deviation
-        function getMealColor(mealType, mealTime) {
-            if (mealType === 'snack') {
-                return 'var(--warning-yellow)';
-            }
-            
-            const idealTimes = appData.idealMealTimes || {
-                breakfast: '08:30',
-                lunch: '13:00',
-                dinner: '18:00'
-            };
-            
-            const ideal = idealTimes[mealType];
-            if (!ideal) return 'var(--strava-orange)';
-            
-            // Convert times to minutes for comparison
-            const [idealHours, idealMinutes] = ideal.split(':').map(Number);
-            const [mealHours, mealMinutes] = mealTime.split(':').map(Number);
-            
-            const idealTotalMinutes = idealHours * 60 + idealMinutes;
-            const mealTotalMinutes = mealHours * 60 + mealMinutes;
-            
-            const deviation = Math.abs(idealTotalMinutes - mealTotalMinutes);
-            
-            // Color gradient based on deviation
-            if (deviation <= 30) {
-                // Within 30 minutes - standard orange
-                return 'var(--strava-orange)';
-            } else if (deviation <= 60) {
-                // 30-60 minutes off - darker orange
-                return '#E54502';
-            } else {
-                // More than 1 hour off - red
-                return 'var(--danger-red)';
-            }
-        }
-
-        // Open add chart modal
-        function openAddModal() {
-            currentEditingChart = null;
-            heatmapTempData = [];
-            calendarTempData = [];
-            document.getElementById('modalTitle').textContent = 'Add New Chart';
-            document.getElementById('chartName').value = '';
-            document.getElementById('dailyGoal').value = '';
-            document.getElementById('columnHeader').value = 'Value';
-            document.getElementById('dataTableBody').innerHTML = '';
-            document.getElementById('heatmapEntriesList').innerHTML = '<div style="color: var(--strava-text-secondary); text-align: center;">No entries yet</div>';
-            document.getElementById('calendarDatesList').innerHTML = '<div style="color: var(--strava-text-secondary); text-align: center;">No dates marked yet</div>';
-            selectedChartType = 'line';
-            updateChartTypeButtons();
-            updateDataEntryVisibility();
-            addDataRow();
-            
-            const now = new Date();
-            now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-            document.getElementById('heatmapDateTime').value = now.toISOString().slice(0, 16);
-            document.getElementById('calendarDateInput').value = '';
-            
-            document.getElementById('chartModal').classList.add('active');
-        }
-
-        // Open edit chart modal
-        function openEditModal(chartId) {
-            const chart = appData.charts.find(c => c.id === chartId);
-            if (!chart || chart.permanent) return;
-            
-            currentEditingChart = chartId;
-            document.getElementById('modalTitle').textContent = 'Edit Chart';
-            document.getElementById('chartName').value = chart.name;
-            document.getElementById('dailyGoal').value = chart.goal || '';
-            document.getElementById('columnHeader').value = chart.dataLabel || 'Value';
-            selectedChartType = chart.type;
-            updateChartTypeButtons();
-            updateDataEntryVisibility();
-            
-            if (chart.type === 'heatmap') {
-                heatmapTempData = chart.heatmapData ? [...chart.heatmapData] : [];
-                updateHeatmapEntriesList();
-            } else if (chart.type === 'calendar') {
-                calendarTempData = chart.calendarData ? [...chart.calendarData] : [];
-                updateCalendarDatesList();
-            } else {
-                const tbody = document.getElementById('dataTableBody');
-                tbody.innerHTML = '';
-                if (chart.data) {
-                    chart.data.forEach(row => {
-                        addDataRow(row.date, row.value);
-                    });
-                }
-                
-                if (!chart.data || chart.data.length === 0) {
-                    addDataRow();
-                }
-            }
-            
-            document.getElementById('chartModal').classList.add('active');
-        }
-
-        // Close modal
-        function closeModal() {
-            document.getElementById('chartModal').classList.remove('active');
-        }
-
-        // Select chart type
-        function selectChartType(type) {
-            selectedChartType = type;
-            updateChartTypeButtons();
-            updateDataEntryVisibility();
-        }
-
-        function updateChartTypeButtons() {
-            document.querySelectorAll('.chart-type-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            const buttons = document.querySelectorAll('.chart-type-btn');
-            const typeIndex = selectedChartType === 'line' ? 0 : 
-                            (selectedChartType === 'bar' ? 1 : 
-                            (selectedChartType === 'heatmap' ? 2 : 3));
-            if (buttons[typeIndex]) {
-                buttons[typeIndex].classList.add('selected');
-            }
-        }
-
-        function updateDataEntryVisibility() {
-            const regularDataSection = document.getElementById('dataEntrySection');
-            const heatmapDataSection = document.getElementById('heatmapDataSection');
-            const calendarDataSection = document.getElementById('calendarDataSection');
-            const goalSection = document.getElementById('goalSection');
-            
-            if (selectedChartType === 'heatmap') {
-                regularDataSection.style.display = 'none';
-                heatmapDataSection.style.display = 'block';
-                calendarDataSection.style.display = 'none';
-                goalSection.style.display = 'none';
-            } else if (selectedChartType === 'calendar') {
-                regularDataSection.style.display = 'none';
-                heatmapDataSection.style.display = 'none';
-                calendarDataSection.style.display = 'block';
-                goalSection.style.display = 'block'; // Goal can be monthly target
-            } else {
-                regularDataSection.style.display = 'block';
-                heatmapDataSection.style.display = 'none';
-                calendarDataSection.style.display = 'none';
-                goalSection.style.display = 'block';
-            }
-        }
-
-        // Add heatmap entry
-        function addHeatmapEntry() {
-            const dateTime = document.getElementById('heatmapDateTime').value;
-            const intensity = document.getElementById('heatmapIntensity').value;
-            
-            if (!dateTime || !intensity) {
-                alert('Please enter both date/time and intensity value');
-                return;
-            }
-            
-            heatmapTempData.push({
-                datetime: dateTime,
-                intensity: parseFloat(intensity)
-            });
-            
-            updateHeatmapEntriesList();
-            
-            document.getElementById('heatmapIntensity').value = '';
-            
-            const nextTime = new Date(dateTime);
-            nextTime.setHours(nextTime.getHours() + 1);
-            nextTime.setMinutes(nextTime.getMinutes() - nextTime.getTimezoneOffset());
-            document.getElementById('heatmapDateTime').value = nextTime.toISOString().slice(0, 16);
-        }
-
-        // Update heatmap entries list display
-        function updateHeatmapEntriesList() {
-            const list = document.getElementById('heatmapEntriesList');
-            
-            if (heatmapTempData.length === 0) {
-                list.innerHTML = '<div style="color: var(--strava-text-secondary); text-align: center;">No entries yet</div>';
-                return;
-            }
-            
-            heatmapTempData.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
-            
-            list.innerHTML = heatmapTempData.map((entry, index) => {
-                const date = new Date(entry.datetime);
-                const formattedDate = date.toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    hour: '2-digit', 
-                    minute: '2-digit' 
-                });
-                return `
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px solid var(--strava-border);">
-                        <span style="color: var(--strava-text);">${formattedDate} - <strong style="color: var(--strava-orange);">${entry.intensity}</strong></span>
-                        <button onclick="removeHeatmapEntry(${index})" class="delete-row-btn">Remove</button>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Remove heatmap entry
-        function removeHeatmapEntry(index) {
-            heatmapTempData.splice(index, 1);
-            updateHeatmapEntriesList();
-        }
-
-        // Add data row
-        function addDataRow(date = '', value = '') {
-            const tbody = document.getElementById('dataTableBody');
-            const row = document.createElement('tr');
-            const today = new Date().toISOString().split('T')[0];
-            
-            row.innerHTML = `
-                <td><input type="date" class="data-date" value="${date}" max="${today}"></td>
-                <td><input type="number" class="data-value" placeholder="Enter value" value="${value}"></td>
-                <td><button class="delete-row-btn" onclick="deleteDataRow(this)">Delete</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-
-        // Delete data row
-        function deleteDataRow(btn) {
-            btn.closest('tr').remove();
-        }
-
-        // Save chart
-        async function saveChart() {
-            const name = document.getElementById('chartName').value.trim();
-            if (!name) {
-                alert('Please enter a chart name');
-                return;
-            }
-            
-            if (selectedChartType === 'calendar') {
-                const goal = document.getElementById('dailyGoal').value ? parseFloat(document.getElementById('dailyGoal').value) : null;
-                
-                if (currentEditingChart) {
-                    const chart = appData.charts.find(c => c.id === currentEditingChart);
-                    chart.name = name;
-                    chart.type = 'calendar';
-                    chart.goal = goal; // Monthly goal
-                    chart.calendarData = calendarTempData;
-                    chart.dataLabel = 'Days';
-                    chart.data = [];
-                    chart.heatmapData = [];
-                } else {
-                    const newChart = {
-                        id: 'chart_' + Date.now(),
-                        name: name,
-                        type: 'calendar',
-                        goal: goal,
-                        calendarData: calendarTempData,
-                        dataLabel: 'Days',
-                        data: [],
-                        heatmapData: []
-                    };
-                    appData.charts.push(newChart);
-                }
-            } else if (selectedChartType === 'heatmap') {
-                if (heatmapTempData.length === 0) {
-                    alert('Please add at least one data entry');
-                    return;
-                }
-                
-                const dataLabel = document.getElementById('columnHeader').value || 'Intensity';
-                
-                if (currentEditingChart) {
-                    const chart = appData.charts.find(c => c.id === currentEditingChart);
-                    chart.name = name;
-                    chart.type = 'heatmap';
-                    chart.dataLabel = dataLabel;
-                    chart.heatmapData = heatmapTempData;
-                    chart.goal = null;
-                    chart.data = [];
-                    chart.calendarData = [];
-                } else {
-                    const newChart = {
-                        id: 'chart_' + Date.now(),
-                        name: name,
-                        type: 'heatmap',
-                        dataLabel: dataLabel,
-                        heatmapData: heatmapTempData,
-                        goal: null,
-                        data: [],
-                        calendarData: []
-                    };
-                    appData.charts.push(newChart);
-                }
-            } else {
-                const goal = document.getElementById('dailyGoal').value ? parseFloat(document.getElementById('dailyGoal').value) : null;
-                const dataLabel = document.getElementById('columnHeader').value || 'Value';
-                
-                const data = [];
-                document.querySelectorAll('#dataTableBody tr').forEach(row => {
-                    const date = row.querySelector('.data-date').value;
-                    const value = row.querySelector('.data-value').value;
-                    if (date && value) {
-                        data.push({
-                            date: date,
-                            value: parseFloat(value)
-                        });
-                    }
-                });
-                
-                data.sort((a, b) => new Date(a.date) - new Date(b.date));
-                
-                if (currentEditingChart) {
-                    const chart = appData.charts.find(c => c.id === currentEditingChart);
-                    chart.name = name;
-                    chart.type = selectedChartType;
-                    chart.goal = goal;
-                    chart.dataLabel = dataLabel;
-                    chart.data = data;
-                    chart.heatmapData = [];
-                    chart.calendarData = [];
-                } else {
-                    const newChart = {
-                        id: 'chart_' + Date.now(),
-                        name: name,
-                        type: selectedChartType,
-                        goal: goal,
-                        dataLabel: dataLabel,
-                        data: data,
-                        heatmapData: [],
-                        calendarData: []
-                    };
-                    appData.charts.push(newChart);
-                }
-            }
-            
-            await saveData();
-            updateDashboard();
-            closeModal();
-        }
-
-        // Delete chart
-        async function deleteChart(chartId) {
-            const chart = appData.charts.find(c => c.id === chartId);
-            if (chart && chart.permanent) {
-                alert('This tracker cannot be deleted');
-                return;
-            }
-            
-            if (confirm('Are you sure you want to delete this chart?')) {
-                appData.charts = appData.charts.filter(c => c.id !== chartId);
-                await saveData();
-                updateDashboard();
-                updateCalorieTracker();
-            }
-        }
-
-        // Add meal entry
-        function addMealEntry(mealType, time, calories) {
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            if (!mealTracker) return;
-            
-            if (!mealTracker.mealData) {
-                mealTracker.mealData = [];
-            }
-            
-            const today = new Date().toISOString().split('T')[0];
-            mealTracker.mealData.push({
-                date: today,
-                time: time,
-                type: mealType,
-                calories: parseFloat(calories)
-            });
-            
-            saveData();
-            updateMealTracker();
-            updateCalorieTracker();
-            updateProgressBar();
-        }
-
-        // Update calorie tracker
-        function updateCalorieTracker() {
-            const today = new Date().toISOString().split('T')[0];
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            
-            // Calculate calories in (from meals)
-            let caloriesIn = 0;
-            if (mealTracker && mealTracker.mealData) {
-                caloriesIn = mealTracker.mealData
-                    .filter(m => m.date === today)
-                    .reduce((sum, m) => sum + m.calories, 0);
-            }
-            
-            // Calculate calories out (from burned data in meal tracker)
-            let caloriesOut = 0;
-            if (mealTracker && mealTracker.burnedData) {
-                const todayBurned = mealTracker.burnedData.find(d => d.date === today);
-                if (todayBurned) {
-                    caloriesOut = todayBurned.calories;
-                }
-            }
-            
-            // Update display
-            document.getElementById('caloriesIn').textContent = Math.round(caloriesIn);
-            document.getElementById('caloriesOut').textContent = Math.round(caloriesOut);
-            
-            const netCalories = caloriesIn - caloriesOut;
-            const netElement = document.getElementById('netCalories');
-            const netStatElement = document.getElementById('netCaloriesStat');
-            const trackerElement = document.getElementById('calorieTracker');
-            
-            if (netCalories < appData.dailyCalorieTarget) {
-                // Deficit (good)
-                const deficit = appData.dailyCalorieTarget - netCalories;
-                netElement.textContent = `-${Math.round(deficit)}`;
-                netStatElement.classList.add('deficit');
-                netStatElement.classList.remove('surplus');
-                trackerElement.classList.add('deficit');
-                trackerElement.classList.remove('surplus');
-            } else {
-                // Surplus (bad)
-                const surplus = netCalories - appData.dailyCalorieTarget;
-                netElement.textContent = `+${Math.round(surplus)}`;
-                netStatElement.classList.remove('deficit');
-                netStatElement.classList.add('surplus');
-                trackerElement.classList.remove('deficit');
-                trackerElement.classList.add('surplus');
-            }
-            
-            document.getElementById('dailyTarget').textContent = appData.dailyCalorieTarget || 2000;
-        }
-
-        // Update progress bar
-        function updateProgressBar() {
-            if (!appData.currentWeight || !appData.targetWeight) return;
-            
-            const weightToLose = appData.currentWeight - appData.targetWeight;
-            const totalDeficitNeeded = weightToLose * 7000; // 7000 kcal per kg
-            
-            // Calculate total deficit achieved
-            let totalDeficitAchieved = 0;
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            
-            // Get all unique dates
-            const dates = new Set();
-            if (mealTracker && mealTracker.mealData) {
-                mealTracker.mealData.forEach(m => dates.add(m.date));
-            }
-            if (mealTracker && mealTracker.burnedData) {
-                mealTracker.burnedData.forEach(d => dates.add(d.date));
-            }
-            
-            // Calculate deficit for each date
-            dates.forEach(date => {
-                let dayCaloriesIn = 0;
-                let dayCaloriesOut = 0;
-                
-                if (mealTracker && mealTracker.mealData) {
-                    dayCaloriesIn = mealTracker.mealData
-                        .filter(m => m.date === date)
-                        .reduce((sum, m) => sum + m.calories, 0);
-                }
-                
-                if (mealTracker && mealTracker.burnedData) {
-                    const dayData = mealTracker.burnedData.find(d => d.date === date);
-                    if (dayData) {
-                        dayCaloriesOut = dayData.calories;
-                    }
-                }
-                
-                const dayNet = dayCaloriesIn - dayCaloriesOut;
-                if (dayNet < appData.dailyCalorieTarget) {
-                    totalDeficitAchieved += (appData.dailyCalorieTarget - dayNet);
-                }
-            });
-            
-            const remaining = Math.max(0, totalDeficitNeeded - totalDeficitAchieved);
-            const percentage = Math.min(100, (totalDeficitAchieved / totalDeficitNeeded) * 100);
-            
-            // Update display
-            document.getElementById('totalDeficitNeeded').textContent = Math.round(totalDeficitNeeded).toLocaleString();
-            document.getElementById('deficitAchieved').textContent = Math.round(totalDeficitAchieved).toLocaleString();
-            document.getElementById('deficitRemaining').textContent = Math.round(remaining).toLocaleString();
-            document.getElementById('progressPercentage').textContent = Math.round(percentage);
-            
-            // Update progress cells
-            const cellsContainer = document.getElementById('progressCells');
-            const cellsToFill = Math.round((percentage / 100) * 20);
-            
-            let cellsHTML = '';
-            for (let i = 0; i < 20; i++) {
-                cellsHTML += `<div class="progress-cell ${i < cellsToFill ? 'filled' : ''}"></div>`;
-            }
-            cellsContainer.innerHTML = cellsHTML;
-        }
-
-        // Update meal tracker display
-        function updateMealTracker() {
-            const mealCard = document.querySelector('#meal_tracker_card');
-            if (!mealCard) return;
-            
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            if (!mealTracker) return;
-            
-            const today = new Date().toISOString().split('T')[0];
-            const todayMeals = mealTracker.mealData ? 
-                mealTracker.mealData.filter(m => m.date === today) : [];
-            
-            // Update timeline
-            const timeline = mealCard.querySelector('.meal-timeline');
-            if (timeline) {
-                // Clear existing markers except axis
-                timeline.querySelectorAll('.meal-marker').forEach(m => m.remove());
-                
-                // Add new markers with color based on time deviation
-                todayMeals.forEach(meal => {
-                    const marker = document.createElement('div');
-                    marker.className = `meal-marker`;
-                    
-                    // Set color based on meal type and time deviation
-                    const color = getMealColor(meal.type, meal.time);
-                    marker.style.background = color;
-                    
-                    // Calculate position based on time
-                    const [hours, minutes] = meal.time.split(':').map(Number);
-                    const totalMinutes = hours * 60 + minutes;
-                    const percentage = (totalMinutes / 1440) * 100; // 1440 minutes in a day
-                    
-                    marker.style.left = `${percentage}%`;
-                    marker.style.top = '50%';
-                    marker.title = `${meal.type}: ${meal.calories} kcal at ${meal.time}`;
-                    
-                    timeline.appendChild(marker);
-                });
-            }
-            
-            // Update calorie breakdown
-            const breakdown = {
-                breakfast: 0,
-                lunch: 0,
-                dinner: 0,
-                snack: 0
-            };
-            
-            todayMeals.forEach(meal => {
-                breakdown[meal.type] += meal.calories;
-            });
-            
-            Object.keys(breakdown).forEach(mealType => {
-                const element = mealCard.querySelector(`#${mealType}Calories`);
-                if (element) {
-                    element.textContent = Math.round(breakdown[mealType]);
-                }
-            });
-            
-            // Update calories burned display
-            const burnedElement = mealCard.querySelector('#caloriesBurnedToday');
-            if (burnedElement && mealTracker.burnedData) {
-                const todayBurned = mealTracker.burnedData.find(d => d.date === today);
-                burnedElement.textContent = todayBurned ? Math.round(todayBurned.calories) : '0';
-            }
-        }
-
-        // Toggle menu
-        function toggleMenu(chartId) {
-            const menu = document.getElementById(`menu_${chartId}`);
-            menu.classList.toggle('active');
-            
-            document.querySelectorAll('.menu-dropdown').forEach(m => {
-                if (m.id !== `menu_${chartId}`) {
-                    m.classList.remove('active');
-                }
-            });
-        }
-
-        // Quick add meal function
-        function addMealQuick() {
-            const mealType = document.getElementById('mealTypeInput').value;
-            const time = document.getElementById('mealTimeInput').value;
-            const calories = document.getElementById('mealCalorieInput').value;
-            
-            if (!calories || calories <= 0) {
-                alert('Please enter valid calories');
-                return;
-            }
-            
-            addMealEntry(mealType, time, calories);
-            
-            // Clear input
-            document.getElementById('mealCalorieInput').value = '';
-        }
-
-        // Update dashboard
-        function updateDashboard() {
-            const content = document.getElementById('dashboardContent');
-            
-            // Update subtitle with chart count (excluding permanent trackers)
-            const chartCount = appData.charts.filter(c => !c.permanent).length;
-            document.getElementById('dashboardSubtitle').textContent = 
-                chartCount === 0 ? 'Start tracking your personal metrics' : 
-                `Tracking ${chartCount} metric${chartCount !== 1 ? 's' : ''}`;
-            
-            content.innerHTML = '<div class="dashboard-grid" id="chartsGrid"></div>';
-            const grid = document.getElementById('chartsGrid');
-            
-            // Show empty state if no charts
-            if (appData.charts.filter(c => !c.permanent).length === 0) {
-                const emptyState = document.createElement('div');
-                emptyState.className = 'empty-state';
-                emptyState.innerHTML = `
-                    <div class="empty-state-icon">📊</div>
-                    <h2 class="empty-state-title">Welcome to Performance</h2>
-                    <p class="empty-state-text">Start tracking your metrics to see your progress</p>
-                    <button class="btn-primary" onclick="openAddModal()">+ Add Your First Chart</button>
-                `;
-                grid.appendChild(emptyState);
-            }
-            
-            // Render charts
-            appData.charts.forEach((chart, index) => {
-                const card = createChartCard(chart, index);
-                grid.appendChild(card);
-            });
-            
-            // Update calorie tracker
-            updateCalorieTracker();
-            updateProgressBar();
-        }
-
-        // Create chart card
-        function createChartCard(chart, index) {
-            const card = document.createElement('div');
-            
-            // Special handling for meal tracker
-            if (chart.id === 'meal_tracker') {
-                card.className = 'meal-tracker-card';
-                card.id = 'meal_tracker_card';
-                
-                const today = new Date().toISOString().split('T')[0];
-                const todayBurned = chart.burnedData ? 
-                    chart.burnedData.find(d => d.date === today) : null;
-                
-                card.innerHTML = `
-                    <div class="chart-header">
-                        <h3 class="chart-title">MEAL & EXERCISE TRACKER</h3>
-                    </div>
-                    
-                    <div class="meal-input-section">
-                        <select class="meal-type-select" id="mealTypeInput">
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                            <option value="snack">Snack</option>
-                        </select>
-                        <input type="time" class="meal-time-input" id="mealTimeInput" value="${new Date().toTimeString().slice(0, 5)}">
-                        <input type="number" class="meal-calorie-input" id="mealCalorieInput" placeholder="Food Calories">
-                        <input type="number" class="calories-burned-input" id="caloriesBurnedInput" placeholder="Calories Burned">
-                        <button class="add-meal-btn" onclick="addMealQuick(); addCaloriesBurned();">ADD</button>
-                    </div>
-                    
-                    <div class="meal-visualizations">
-                        <div class="meal-viz-section">
-                            <div class="meal-viz-title">Meal Timeline Today</div>
-                            <div class="meal-timeline">
-                                <div class="meal-timeline-axis"></div>
-                            </div>
-                            <div class="time-labels">
-                                <span>12AM</span>
-                                <span>6AM</span>
-                                <span>12PM</span>
-                                <span>6PM</span>
-                                <span>12AM</span>
-                            </div>
-                        </div>
-                        
-                        <div class="meal-viz-section">
-                            <div class="meal-viz-title">Calorie Breakdown</div>
-                            <div class="calorie-breakdown">
-                                <div class="meal-category">
-                                    <span class="meal-category-name">🌅 Breakfast</span>
-                                    <span class="meal-category-calories" id="breakfastCalories">0</span>
-                                </div>
-                                <div class="meal-category">
-                                    <span class="meal-category-name">☀️ Lunch</span>
-                                    <span class="meal-category-calories" id="lunchCalories">0</span>
-                                </div>
-                                <div class="meal-category">
-                                    <span class="meal-category-name">🌙 Dinner</span>
-                                    <span class="meal-category-calories" id="dinnerCalories">0</span>
-                                </div>
-                                <div class="meal-category">
-                                    <span class="meal-category-name">🍿 Snacks</span>
-                                    <span class="meal-category-calories" id="snackCalories">0</span>
-                                </div>
-                                <div class="meal-category" style="margin-top: 10px; border-top: 1px solid var(--strava-border); padding-top: 10px;">
-                                    <span class="meal-category-name">🔥 Burned Today</span>
-                                    <span class="meal-category-calories" id="caloriesBurnedToday" style="color: var(--success-green);">${todayBurned ? todayBurned.calories : 0}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                setTimeout(() => {
-                    updateMealTracker();
-                }, 100);
-                
-                return card;
-            }
-            
-            // Regular chart handling
-            card.className = 'chart-card';
-            
-            if (index === 1 && chart.type !== 'heatmap' && chart.type !== 'calendar') {
-                card.className += ' large';
-            }
-            
-            if (chart.type === 'calendar') {
-                card.innerHTML = `
-                    <div class="chart-header">
-                        <h3 class="chart-title">${chart.name}</h3>
-                        <div class="chart-menu">
-                            <button class="menu-dots" onclick="toggleMenu('${chart.id}')">⋯</button>
-                            <div class="menu-dropdown" id="menu_${chart.id}">
-                                <button class="menu-item" onclick="openEditModal('${chart.id}')">Edit Chart</button>
-                                <button class="menu-item" onclick="deleteChart('${chart.id}')">Delete Chart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="calendar_${chart.id}"></div>
-                `;
-                
-                setTimeout(() => {
-                    renderCalendar(chart);
-                }, 100);
-            } else if (chart.type === 'heatmap') {
-                card.innerHTML = `
-                    <div class="chart-header">
-                        <h3 class="chart-title">${chart.name}</h3>
-                        <div class="chart-menu">
-                            <button class="menu-dots" onclick="toggleMenu('${chart.id}')">⋯</button>
-                            <div class="menu-dropdown" id="menu_${chart.id}">
-                                <button class="menu-item" onclick="openEditModal('${chart.id}')">Edit Chart</button>
-                                <button class="menu-item" onclick="deleteChart('${chart.id}')">Delete Chart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="heatmap_${chart.id}"></div>
-                `;
-                
-                setTimeout(() => {
-                    renderHeatmap(chart);
-                }, 100);
-            } else {
-                // Calculate latest value and trend
-                const latestValue = chart.data && chart.data.length > 0 ? 
-                    chart.data[chart.data.length - 1].value : 0;
-                
-                let trend = '';
-                if (chart.data && chart.data.length > 1) {
-                    const prevValue = chart.data[chart.data.length - 2].value;
-                    const change = ((latestValue - prevValue) / prevValue * 100).toFixed(1);
-                    trend = change > 0 ? 
-                        `<span style="color: var(--success-green); font-weight: 500;">↑ ${change}%</span>` :
-                        `<span style="color: #E54502; font-weight: 500;">↓ ${Math.abs(change)}%</span>`;
-                }
-                
-                // Menu for non-permanent charts
-                const menuHtml = !chart.permanent ? `
-                    <div class="chart-menu">
-                        <button class="menu-dots" onclick="toggleMenu('${chart.id}')">⋯</button>
-                        <div class="menu-dropdown" id="menu_${chart.id}">
-                            <button class="menu-item" onclick="openEditModal('${chart.id}')">Edit Chart</button>
-                            <button class="menu-item" onclick="deleteChart('${chart.id}')">Delete Chart</button>
-                        </div>
-                    </div>
-                ` : '';
-                
-                card.innerHTML = `
-                    <div class="chart-header">
-                        <div>
-                            <h3 class="chart-title">${chart.name}</h3>
-                            <div class="chart-value">${latestValue.toLocaleString()}</div>
-                            <div class="chart-label">${chart.dataLabel || 'Value'}</div>
-                            ${trend}
-                        </div>
-                        ${menuHtml}
-                    </div>
-                    <div class="time-range-selector">
-                        <button class="time-btn active" onclick="updateChartRange('${chart.id}', '1W', this)">1W</button>
-                        <button class="time-btn" onclick="updateChartRange('${chart.id}', '1M', this)">1M</button>
-                        <button class="time-btn" onclick="updateChartRange('${chart.id}', 'MAX', this)">MAX</button>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="canvas_${chart.id}"></canvas>
-                    </div>
-                `;
-                
-                setTimeout(() => {
-                    renderChart(chart, '1W');
-                }, 100);
-            }
-            
-            return card;
-        }
-
-        // Update chart range
-        function updateChartRange(chartId, range, btn) {
-            btn.parentElement.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const chart = appData.charts.find(c => c.id === chartId);
-            renderChart(chart, range);
-        }
-
-        // Render chart
-        function renderChart(chartData, range = 'MAX') {
-            const canvas = document.getElementById(`canvas_${chartData.id}`);
-            if (!canvas) return;
-            
-            let filteredData = [...(chartData.data || [])];
-            const now = new Date();
-            
-            if (range === '1W') {
-                const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-                filteredData = filteredData.filter(d => new Date(d.date) >= weekAgo);
-            } else if (range === '1M') {
-                const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-                filteredData = filteredData.filter(d => new Date(d.date) >= monthAgo);
-            }
-            
-            const existingChart = Chart.getChart(canvas);
-            if (existingChart) {
-                existingChart.destroy();
-            }
-            
-            const labels = filteredData.map(d => {
-                const date = new Date(d.date);
-                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            });
-            const values = filteredData.map(d => d.value);
-            
-            const datasets = [{
-                label: chartData.dataLabel || 'Value',
-                data: values,
-                borderColor: '#FC4C02',
-                backgroundColor: chartData.type === 'bar' ? 'rgba(252, 76, 2, 0.8)' : 'rgba(252, 76, 2, 0.1)',
-                tension: 0.4,
-                fill: chartData.type === 'line',
-                borderWidth: 2,
-                pointBackgroundColor: '#FC4C02',
-                pointBorderColor: '#FC4C02',
-                pointHoverBackgroundColor: '#FFFFFF',
-                pointHoverBorderColor: '#FC4C02',
-                pointRadius: 4,
-                pointHoverRadius: 6
-            }];
-            
-            if (chartData.goal) {
-                datasets.push({
-                    label: 'Goal',
-                    data: Array(labels.length).fill(chartData.goal),
-                    borderColor: 'rgba(0, 217, 100, 0.8)',
-                    borderDash: [5, 5],
-                    borderWidth: 2,
-                    fill: false,
-                    pointRadius: 0,
-                    type: 'line'
-                });
-            }
-            
-            new Chart(canvas, {
-                type: chartData.type === 'line' ? 'line' : 'bar',
-                data: {
-                    labels: labels,
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: chartData.goal !== null,
-                            position: 'bottom',
-                            labels: {
-                                padding: 15,
-                                font: {
-                                    size: 11,
-                                    weight: '500'
-                                }
-                            }
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                            titleColor: '#FFFFFF',
-                            bodyColor: '#FFFFFF',
-                            borderColor: '#FC4C02',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                            titleFont: {
-                                size: 13,
-                                weight: '500'
-                            },
-                            bodyFont: {
-                                size: 12
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)',
-                                drawBorder: false
-                            },
-                            ticks: {
-                                font: {
-                                    size: 11
-                                }
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false,
-                                drawBorder: false
-                            },
-                            ticks: {
-                                font: {
-                                    size: 11
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Render calendar
-        function renderCalendar(chartData, monthOffset = 0) {
-            const container = document.getElementById(`calendar_${chartData.id}`);
-            if (!container) return;
-            
-            const now = new Date();
-            const currentMonth = new Date(now.getFullYear(), now.getMonth() + monthOffset, 1);
-            const year = currentMonth.getFullYear();
-            const month = currentMonth.getMonth();
-            
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            const daysInPrevMonth = new Date(year, month, 0).getDate();
-            
-            const monthName = currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-            
-            // Get marked dates for this month
-            const markedDates = (chartData.calendarData || []).filter(date => {
-                const d = new Date(date);
-                return d.getFullYear() === year && d.getMonth() === month;
-            });
-            
-            // Calculate stats
-            const totalMarked = markedDates.length;
-            const goal = chartData.goal || 0;
-            const streak = calculateStreak(chartData.calendarData || []);
-            
-            let html = `
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <button class="calendar-nav-btn" onclick="changeCalendarMonth('${chartData.id}', ${monthOffset - 1})">
-                            ← PREV
-                        </button>
-                        <span class="calendar-title">${monthName}</span>
-                        <button class="calendar-nav-btn" onclick="changeCalendarMonth('${chartData.id}', ${monthOffset + 1})">
-                            NEXT →
-                        </button>
-                    </div>
-                    
-                    <div class="calendar-grid">
-                        <div class="calendar-day-header">SUN</div>
-                        <div class="calendar-day-header">MON</div>
-                        <div class="calendar-day-header">TUE</div>
-                        <div class="calendar-day-header">WED</div>
-                        <div class="calendar-day-header">THU</div>
-                        <div class="calendar-day-header">FRI</div>
-                        <div class="calendar-day-header">SAT</div>
-            `;
-            
-            // Add empty cells for days before month starts
-            for (let i = 0; i < firstDay; i++) {
-                const prevDate = daysInPrevMonth - firstDay + i + 1;
-                html += `<div class="calendar-day other-month">${prevDate}</div>`;
-            }
-            
-            // Add days of the month
-            const today = new Date();
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                const isMarked = markedDates.some(d => d === dateStr);
-                const isToday = today.getFullYear() === year && 
-                               today.getMonth() === month && 
-                               today.getDate() === day;
-                
-                const classes = ['calendar-day'];
-                if (isMarked) classes.push('active');
-                if (isToday) classes.push('today');
-                
-                html += `<div class="${classes.join(' ')}" onclick="toggleCalendarDate('${chartData.id}', '${dateStr}')">${day}</div>`;
-            }
-            
-            // Add empty cells for remaining week
-            const totalCells = firstDay + daysInMonth;
-            const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
-            for (let i = 1; i <= remainingCells; i++) {
-                html += `<div class="calendar-day other-month">${i}</div>`;
-            }
-            
-            html += `
-                    </div>
-                    
-                    <div class="calendar-stats">
-                        <div class="calendar-stat">
-                            <div class="calendar-stat-value">${totalMarked}</div>
-                            <div class="calendar-stat-label">This Month</div>
-                        </div>
-                        ${goal ? `
-                        <div class="calendar-stat">
-                            <div class="calendar-stat-value" style="color: ${totalMarked >= goal ? 'var(--success-green)' : 'var(--strava-orange)'}">
-                                ${Math.round((totalMarked / goal) * 100)}%
-                            </div>
-                            <div class="calendar-stat-label">Goal Progress</div>
-                        </div>
-                        ` : ''}
-                        <div class="calendar-stat">
-                            <div class="calendar-stat-value">${streak}</div>
-                            <div class="calendar-stat-label">Current Streak</div>
-                        </div>
-                        <div class="calendar-stat">
-                            <div class="calendar-stat-value">${(chartData.calendarData || []).length}</div>
-                            <div class="calendar-stat-label">Total Days</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            container.innerHTML = html;
-            
-            if (!window.calendarMonthOffsets) {
-                window.calendarMonthOffsets = {};
-            }
-            window.calendarMonthOffsets[chartData.id] = monthOffset;
-        }
-
-        // Calculate streak
-        function calculateStreak(dates) {
-            if (!dates || dates.length === 0) return 0;
-            
-            const sortedDates = [...dates].sort((a, b) => new Date(b) - new Date(a));
-            const today = new Date().toISOString().split('T')[0];
-            
-            let streak = 0;
-            let currentDate = new Date(today);
-            
-            for (let i = 0; i < 365; i++) {
-                const dateStr = currentDate.toISOString().split('T')[0];
-                if (sortedDates.includes(dateStr)) {
-                    streak++;
-                    currentDate.setDate(currentDate.getDate() - 1);
-                } else if (i === 0) {
-                    // If today is not marked, check yesterday
-                    currentDate.setDate(currentDate.getDate() - 1);
-                    const yesterday = currentDate.toISOString().split('T')[0];
-                    if (sortedDates.includes(yesterday)) {
-                        streak = 1;
-                    } else {
-                        break;
-                    }
-                } else {
-                    break;
-                }
-            }
-            
-            return streak;
-        }
-
-        // Toggle calendar date
-        function toggleCalendarDate(chartId, dateStr) {
-            const chart = appData.charts.find(c => c.id === chartId);
-            if (!chart) return;
-            
-            if (!chart.calendarData) {
-                chart.calendarData = [];
-            }
-            
-            const index = chart.calendarData.indexOf(dateStr);
-            if (index === -1) {
-                chart.calendarData.push(dateStr);
-            } else {
-                chart.calendarData.splice(index, 1);
-            }
-            
-            saveData();
-            renderCalendar(chart, window.calendarMonthOffsets[chartId] || 0);
-        }
-
-        // Change calendar month
-        function changeCalendarMonth(chartId, newOffset) {
-            const chart = appData.charts.find(c => c.id === chartId);
-            if (chart) {
-                renderCalendar(chart, newOffset);
-            }
-        }
-
-        // Render heatmap
-        function renderHeatmap(chartData, weekOffset = 0) {
-            const container = document.getElementById(`heatmap_${chartData.id}`);
-            if (!container) return;
-            
-            const now = new Date();
-            const currentWeekStart = new Date(now);
-            currentWeekStart.setDate(now.getDate() - now.getDay() + (weekOffset * 7));
-            currentWeekStart.setHours(0, 0, 0, 0);
-            
-            const weekEnd = new Date(currentWeekStart);
-            weekEnd.setDate(currentWeekStart.getDate() + 6);
-            weekEnd.setHours(23, 59, 59, 999);
-            
-            const weekData = (chartData.heatmapData || []).filter(entry => {
-                const entryDate = new Date(entry.datetime);
-                return entryDate >= currentWeekStart && entryDate <= weekEnd;
-            });
-            
-            const grid = Array(24).fill(null).map(() => Array(7).fill(0));
-            const maxIntensity = Math.max(...weekData.map(d => d.intensity), 1);
-            
-            weekData.forEach(entry => {
-                const date = new Date(entry.datetime);
-                const dayOfWeek = date.getDay();
-                const hour = date.getHours();
-                grid[hour][dayOfWeek] = Math.max(grid[hour][dayOfWeek], entry.intensity);
-            });
-            
-            const canGoNext = weekEnd < now;
-            const weekLabel = `${currentWeekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
-            
-            let html = `
-                <div class="week-navigator">
-                    <button class="week-nav-btn" onclick="changeHeatmapWeek('${chartData.id}', ${weekOffset - 1})" ${weekOffset === -52 ? 'disabled' : ''}>
-                        ← PREV
-                    </button>
-                    <span class="week-label">${weekLabel}</span>
-                    <button class="week-nav-btn" onclick="changeHeatmapWeek('${chartData.id}', ${weekOffset + 1})" ${!canGoNext ? 'disabled' : ''}>
-                        NEXT →
-                    </button>
-                </div>
-                <div class="heatmap-container">
-                    <table class="heatmap-table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>SUN</th>
-                                <th>MON</th>
-                                <th>TUE</th>
-                                <th>WED</th>
-                                <th>THU</th>
-                                <th>FRI</th>
-                                <th>SAT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-            `;
-            
-            for (let hour = 0; hour < 24; hour++) {
-                html += '<tr>';
-                html += `<td class="hour-label">${hour === 0 ? '12A' : hour < 12 ? `${hour}A` : hour === 12 ? '12P' : `${hour - 12}P`}</td>`;
-                
-                for (let day = 0; day < 7; day++) {
-                    const intensity = grid[hour][day];
-                    const opacity = intensity > 0 ? (intensity / maxIntensity) : 0;
-                    const hasData = intensity > 0;
-                    
-                    let bgColor = 'var(--strava-dark)';
-                    if (hasData) {
-                        const r = 252;
-                        const g = Math.round(76 + (200 - 76) * (1 - opacity));
-                        const b = Math.round(2 + (150 - 2) * (1 - opacity));
-                        bgColor = `rgb(${r}, ${g}, ${b})`;
-                    }
-                    
-                    const date = new Date(currentWeekStart);
-                    date.setDate(currentWeekStart.getDate() + day);
-                    date.setHours(hour);
-                    
-                    const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                    const timeStr = hour === 0 ? '12AM' : hour < 12 ? `${hour}AM` : hour === 12 ? '12PM' : `${hour - 12}PM`;
-                    
-                    html += `<td 
-                        class="${hasData ? 'has-data' : ''}" 
-                        style="background-color: ${bgColor};"
-                        ${hasData ? `onmouseover="showHeatmapTooltip(event, '${dateStr}', '${timeStr}', '${intensity} ${chartData.dataLabel || 'units'}')" onmouseout="hideHeatmapTooltip()"` : ''}
-                    ></td>`;
-                }
-                html += '</tr>';
-            }
-            
-            html += `
-                        </tbody>
-                    </table>
-                </div>
-            `;
-            
-            container.innerHTML = html;
-        }
-
-        // Change heatmap week
-        function changeHeatmapWeek(chartId, newOffset) {
-            const chart = appData.charts.find(c => c.id === chartId);
-            if (chart) {
-                renderHeatmap(chart, newOffset);
-            }
-        }
-
-        // Show heatmap tooltip
-        function showHeatmapTooltip(event, date, time, value) {
-            const tooltip = document.createElement('div');
-            tooltip.className = 'heatmap-tooltip';
-            tooltip.innerHTML = `${date} ${time}<br><strong>${value}</strong>`;
-            tooltip.style.left = `${event.pageX + 10}px`;
-            tooltip.style.top = `${event.pageY - 30}px`;
-            tooltip.id = 'heatmapTooltip';
-            document.body.appendChild(tooltip);
-        }
-
-        // Hide heatmap tooltip
-        function hideHeatmapTooltip() {
-            const tooltip = document.getElementById('heatmapTooltip');
-            if (tooltip) {
-                tooltip.remove();
-            }
-        }
-
-        // Close menus when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.matches('.menu-dots')) {
-                document.querySelectorAll('.menu-dropdown').forEach(menu => {
-                    menu.classList.remove('active');
-                });
-            }
-        });
-
-        // Initialize on load
-        window.addEventListener('DOMContentLoaded', init);
-    </script>
-</body>
-</html> (!appData.targetDate) {
-                    document.getElementById('setupModal').classList.add('active');
-                }
-            } else {
-                await loadFromGithub();
-                if (!appData.targetDate) {
-                    document.getElementById('setupModal').classList.add('active');
-                }
-            }
-            
-            // Ensure meal tracker exists
-            ensureMealTracker();
-            
-            if (appData.targetDate) {
-                updateDashboard();
-                startCountdown();
-                updateCalorieTracker();
-                updateProgressBar();
-            }
-            
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('targetDateInput').setAttribute('min', today);
-            document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-US', { 
-                weekday: 'short', 
-                month: 'short', 
-                day: 'numeric' 
-            });
-        }
-
-        // Ensure meal tracker exists
-        function ensureMealTracker() {
-            const mealTracker = appData.charts.find(c => c.id === 'meal_tracker');
-            if (!mealTracker) {
-                appData.charts.unshift({
-                    id: 'meal_tracker',
-                    name: 'Meal & Exercise Tracker',
-                    type: 'meal',
-                    dataLabel: 'Calories',
-                    mealData: [],
-                    burnedData: [],
-                    permanent: true
-                });
-            }
-            
-            // Ensure ideal meal times are set
-            if (!appData.idealMealTimes) {
-                appData.idealMealTimes = {
-                    breakfast: '08:30',
-                    lunch: '13:00',
-                    dinner: '18:00'
-                };
-            }
-        }
-
         // Load GitHub configuration from localStorage
         function loadGithubConfig() {
             const saved = localStorage.getItem('githubConfig');
@@ -3035,78 +1692,60 @@
             }
         }
 
-        // Open settings modal
-        function openSettingsModal() {
-            // Populate current values
-            document.getElementById('settingsTargetDate').value = appData.targetDate || '';
-            document.getElementById('settingsCurrentWeight').value = appData.currentWeight || '';
-            document.getElementById('settingsTargetWeight').value = appData.targetWeight || '';
-            document.getElementById('settingsDailyCalories').value = appData.dailyCalorieTarget || 2000;
-            
-            // Meal times
-            document.getElementById('breakfastTime').value = appData.idealMealTimes?.breakfast || '08:30';
-            document.getElementById('lunchTime').value = appData.idealMealTimes?.lunch || '13:00';
-            document.getElementById('dinnerTime').value = appData.idealMealTimes?.dinner || '18:00';
-            
-            // GitHub config
-            document.getElementById('githubToken').value = githubConfig.token || '';
-            document.getElementById('githubUsername').value = githubConfig.username || '';
-            document.getElementById('githubRepo').value = githubConfig.repo || '';
-            document.getElementById('githubBranch').value = githubConfig.branch || 'main';
-            
-            document.getElementById('settingsModal').classList.add('active');
-        }
-
-        // Close settings modal
-        function closeSettingsModal() {
-            document.getElementById('settingsModal').classList.remove('active');
-        }
-
-        // Save settings
-        async function saveSettings() {
-            // Update weight goals
-            appData.targetDate = document.getElementById('settingsTargetDate').value;
-            appData.currentWeight = parseFloat(document.getElementById('settingsCurrentWeight').value) || appData.currentWeight;
-            appData.targetWeight = parseFloat(document.getElementById('settingsTargetWeight').value) || appData.targetWeight;
-            appData.dailyCalorieTarget = parseFloat(document.getElementById('settingsDailyCalories').value) || 2000;
-            
-            // Update meal times
-            appData.idealMealTimes = {
-                breakfast: document.getElementById('breakfastTime').value,
-                lunch: document.getElementById('lunchTime').value,
-                dinner: document.getElementById('dinnerTime').value
-            };
-            
-            // Update GitHub config
+        // Save GitHub configuration
+        function saveGithubConfig() {
             const token = document.getElementById('githubToken').value.trim();
             const username = document.getElementById('githubUsername').value.trim();
             const repo = document.getElementById('githubRepo').value.trim();
             const branch = document.getElementById('githubBranch').value.trim() || 'main';
             
-            if (token && username && repo) {
-                githubConfig = {
-                    token: token,
-                    username: username,
-                    repo: repo,
-                    branch: branch,
-                    useGithub: true
-                };
-                localStorage.setItem('githubConfig', JSON.stringify(githubConfig));
+            if (!token || !username || !repo) {
+                alert('Please fill in all required fields');
+                return;
             }
             
-            await saveData();
-            closeSettingsModal();
-            updateDashboard();
-            startCountdown();
-            updateCalorieTracker();
-            updateProgressBar();
+            githubConfig = {
+                token: token,
+                username: username,
+                repo: repo,
+                branch: branch,
+                useGithub: true
+            };
+            
+            localStorage.setItem('githubConfig', JSON.stringify(githubConfig));
+            document.getElementById('githubSetupModal').classList.remove('active');
+            
+            loadFromGithub().then(() => {
+                if (!appData.targetDate) {
+                    document.getElementById('setupModal').classList.add('active');
+                }
+            });
         }
 
-        // Skip setup
-        function skipSetup() {
-            document.getElementById('setupModal').classList.remove('active');
-            ensureMealTracker();
-            updateDashboard();
+        // Skip GitHub setup and use local storage
+        function skipGithubSetup() {
+            githubConfig.useGithub = false;
+            localStorage.setItem('githubConfig', JSON.stringify(githubConfig));
+            document.getElementById('githubSetupModal').classList.remove('active');
+            
+            loadLocalData();
+            if (!appData.targetDate) {
+                document.getElementById('setupModal').classList.add('active');
+            } else {
+                updateDashboard();
+                startCountdown();
+            }
+            
+            updateSyncStatus('offline', 'Local Storage');
+        }
+
+        // Open GitHub settings
+        function openGithubSettings() {
+            document.getElementById('githubToken').value = githubConfig.token || '';
+            document.getElementById('githubUsername').value = githubConfig.username || '';
+            document.getElementById('githubRepo').value = githubConfig.repo || '';
+            document.getElementById('githubBranch').value = githubConfig.branch || 'main';
+            document.getElementById('githubSetupModal').classList.add('active');
         }
 
         // Load data from GitHub
@@ -3139,7 +1778,7 @@
                 }
                 
                 const data = await response.json();
-                lastSha = data.sha;
+                lastSha = data.content.sha;.sha;
                 
                 const content = atob(data.content);
                 appData = JSON.parse(content);
@@ -3147,6 +1786,8 @@
                 localStorage.setItem('healthTrackerData', JSON.stringify(appData));
                 
                 updateSyncStatus('synced', 'GitHub Synced');
+                updateDashboard();
+                startCountdown();
                 
             } catch (error) {
                 console.error('Error loading from GitHub:', error);
@@ -3190,175 +1831,8 @@
                 });
                 
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error('GitHub API error details:', errorData);
                     throw new Error(`GitHub API error: ${response.status}`);
                 }
                 
                 const data = await response.json();
-                lastSha = data.content.sha;
-                
-                localStorage.setItem('healthTrackerData', JSON.stringify(appData));
-                
-                updateSyncStatus('synced', 'Saved to GitHub');
-                
-            } catch (error) {
-                console.error('Error saving to GitHub:', error);
-                updateSyncStatus('error', 'Save Failed - Check Settings');
-                saveLocalData();
-            }
-        }
-
-        // Load data from localStorage
-        function loadLocalData() {
-            const saved = localStorage.getItem('healthTrackerData');
-            if (saved) {
-                appData = JSON.parse(saved);
-            }
-        }
-
-        // Save data to localStorage
-        function saveLocalData() {
-            localStorage.setItem('healthTrackerData', JSON.stringify(appData));
-            updateSyncStatus('offline', 'Saved Locally');
-        }
-
-        // Save data (GitHub or local)
-        async function saveData() {
-            if (githubConfig.useGithub) {
-                await saveToGithub();
-            } else {
-                saveLocalData();
-            }
-        }
-
-        // Update sync status indicator
-        function updateSyncStatus(status, text) {
-            const statusEl = document.getElementById('syncStatus');
-            const iconEl = document.getElementById('syncIcon');
-            const textEl = document.getElementById('syncText');
-            
-            statusEl.className = 'sync-indicator';
-            
-            switch(status) {
-                case 'syncing':
-                    statusEl.classList.add('syncing');
-                    iconEl.innerHTML = '<span class="loading-spinner"></span>';
-                    break;
-                case 'synced':
-                    statusEl.classList.add('synced');
-                    iconEl.textContent = '✔';
-                    break;
-                case 'error':
-                    statusEl.classList.add('error');
-                    iconEl.textContent = '⚠️';
-                    break;
-                case 'offline':
-                    iconEl.textContent = '💾';
-                    break;
-            }
-            
-            textEl.textContent = text;
-        }
-
-        // Set target date
-        async function setTarget() {
-            const dateInput = document.getElementById('targetDateInput').value;
-            const currentWeight = parseFloat(document.getElementById('currentWeightInput').value);
-            const targetWeight = parseFloat(document.getElementById('targetWeightInput').value);
-            const dailyCalories = parseFloat(document.getElementById('dailyCalorieInput').value) || 2000;
-            
-            if (!dateInput || !currentWeight || !targetWeight) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            appData.targetDate = dateInput;
-            appData.currentWeight = currentWeight;
-            appData.targetWeight = targetWeight;
-            appData.dailyCalorieTarget = dailyCalories;
-            
-            await saveData();
-            document.getElementById('setupModal').classList.remove('active');
-            ensureMealTracker();
-            updateDashboard();
-            startCountdown();
-            updateCalorieTracker();
-            updateProgressBar();
-        }
-
-        // Update countdown
-        function startCountdown() {
-            updateCountdown();
-            setInterval(updateCountdown, 1000 * 60);
-        }
-
-        function updateCountdown() {
-            if (!appData.targetDate) {
-                document.getElementById('targetDisplay').textContent = 'Not Set';
-                document.getElementById('countdown').textContent = 'Set Your Goal';
-                return;
-            }
-            
-            const target = new Date(appData.targetDate);
-            const now = new Date();
-            const diff = target - now;
-            
-            document.getElementById('targetDisplay').textContent = target.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
-            });
-            
-            if (diff <= 0) {
-                document.getElementById('countdown').textContent = '🏆 ACHIEVED!';
-                return;
-            }
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById('countdown').textContent = `${days} DAYS TO GO`;
-        }
-
-        // Open daily update modal
-        function openDailyUpdateModal() {
-            const today = new Date().toISOString().split('T')[0];
-            
-            // Create inputs for other charts
-            const container = document.getElementById('dailyUpdateCharts');
-            container.innerHTML = '';
-            
-            appData.charts.forEach(chart => {
-                if (chart.id !== 'meal_tracker' && chart.type !== 'heatmap') {
-                    const todayData = chart.data ? chart.data.find(d => d.date === today) : null;
-                    
-                    const chartInput = document.createElement('div');
-                    chartInput.className = 'form-group';
-                    chartInput.innerHTML = `
-                        <label class="form-label">${chart.name}</label>
-                        <input type="number" class="form-input daily-chart-input" 
-                               data-chart-id="${chart.id}" 
-                               placeholder="Enter today's ${chart.dataLabel || 'value'}"
-                               value="${todayData ? todayData.value : ''}">
-                    `;
-                    container.appendChild(chartInput);
-                }
-            });
-            
-            document.getElementById('dailyUpdateModal').classList.add('active');
-        }
-
-        // Close daily update modal
-        function closeDailyUpdateModal() {
-            document.getElementById('dailyUpdateModal').classList.remove('active');
-        }
-
-        // Save daily update
-        async function saveDailyUpdate() {
-            const today = new Date().toISOString().split('T')[0];
-            
-            // Save other chart data
-            document.querySelectorAll('.daily-chart-input').forEach(input => {
-                const chartId = input.dataset.chartId;
-                const value = parseFloat(input.value);
-                
-                if
+                lastSha = data
