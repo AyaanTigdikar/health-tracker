@@ -62,6 +62,32 @@
         }
       ],
       "heatmapData": []
+    },
+    {
+      "id": "chart_1758194193809",
+      "name": "Vitamins",
+      "type": "bar",
+      "goal": 5,
+      "dataLabel": "Value",
+      "data": [
+        {
+          "date": "2025-09-15",
+          "value": 9
+        },
+        {
+          "date": "2025-09-16",
+          "value": 5
+        },
+        {
+          "date": "2025-09-17",
+          "value": 3
+        },
+        {
+          "date": "2025-09-18",
+          "value": 6
+        }
+      ],
+      "heatmapData": []
     }
   ]
 }
