@@ -25,7 +25,7 @@
       "id": "chart_1758198318463",
       "name": "hello",
       "type": "line",
-      "goal": 10000,
+      "goal": 1000,
       "dataLabel": "Value",
       "data": [
         {
