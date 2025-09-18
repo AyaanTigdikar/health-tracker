@@ -15,6 +15,12 @@
           "time": "08:00",
           "type": "breakfast",
           "calories": 600
+        },
+        {
+          "date": "2025-09-18",
+          "time": "20:50",
+          "type": "dinner",
+          "calories": 800
         }
       ],
       "permanent": true
