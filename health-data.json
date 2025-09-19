@@ -9,7 +9,14 @@
       "name": "Meal Tracker",
       "type": "meal",
       "dataLabel": "Calories",
-      "mealData": [],
+      "mealData": [
+        {
+          "date": "2025-09-19",
+          "time": "10:33",
+          "type": "breakfast",
+          "calories": 300
+        }
+      ],
       "permanent": true
     },
     {
