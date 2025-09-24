@@ -1,0 +1,25 @@
+{
+  "targetDate": "2025-12-31",
+  "targetWeight": 70,
+  "currentWeight": 77,
+  "dailyCalorieTarget": 1500,
+  "charts": [
+    {
+      "id": "meal_tracker",
+      "name": "Meal Tracker",
+      "type": "meal",
+      "dataLabel": "Calories",
+      "mealData": [],
+      "permanent": true
+    },
+    {
+      "id": "calories_burned",
+      "name": "Calories Burned",
+      "type": "bar",
+      "dataLabel": "Calories",
+      "data": [],
+      "goal": null,
+      "permanent": true
+    }
+  ]
+}
