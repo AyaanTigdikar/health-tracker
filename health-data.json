@@ -1,0 +1,25 @@
+{
+  "targetDate": "2026-07-22",
+  "targetWeight": 70,
+  "currentWeight": 76,
+  "dailyCalorieTarget": 2100,
+  "charts": [
+    {
+      "id": "meal_tracker",
+      "name": "Meal Tracker",
+      "type": "meal",
+      "dataLabel": "Calories",
+      "mealData": [],
+      "permanent": true
+    },
+    {
+      "id": "calories_burned",
+      "name": "Calories Burned",
+      "type": "bar",
+      "dataLabel": "Calories",
+      "data": [],
+      "goal": null,
+      "permanent": true
+    }
+  ]
+}
